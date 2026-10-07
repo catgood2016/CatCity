@@ -1,3 +1,4 @@
+
 namespace CatCity {
 
     interface IUpgradable
@@ -104,6 +105,7 @@ namespace CatCity {
         public override void Upgrade(City city)
         {
             base.Upgrade(city);
+            city.Maxcats += 2;
         }
     public int Capacity
     {
@@ -141,6 +143,7 @@ class Farm : Building
         int food = 2 * Level;
         city.AddFood(food);
         Console.WriteLine(Name + " made  " + food + "food");
+        
     }
 }
 class FishMarket : Building
@@ -320,13 +323,17 @@ class Park : Building
             }
         }
     }
+    private int maxcats = 2;
     public int Maxcats
     {
         get
         {
-            return 2;
+            return maxcats;
         }
-        
+        set
+        {
+            maxcats = value;
+        }
     }
     
     public List<Cat> Cats
