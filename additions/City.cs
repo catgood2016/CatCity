@@ -1,5 +1,6 @@
 
 namespace CatCity {
+    
 
     interface IUpgradable
     {
@@ -111,8 +112,8 @@ namespace CatCity {
     }
 
     public House() : base("house", 6)
-    {
-    }
+        {
+        }
     public override void Produce(City city)
     {
         city.ChangeHappieness(Level);
@@ -185,6 +186,80 @@ class Park : Building
     private int coins;
     private int food;
     private int happiness;
+     public int Day
+    {
+        get
+            {
+                return day;
+            }
+        set
+            {
+                day = value;
+            }
+    }
+    public int Happieness
+    {
+        set
+        {
+            if (value < 0)
+            {
+                happiness = 0;
+            }
+            else if (value > 100)
+            {
+                happiness = 100;
+            }
+            else 
+            {
+                happiness = value;
+            }
+            
+        }
+
+        get
+        {
+            return happiness;
+        }
+    }
+    public int Food
+    {
+        get
+        {
+            return food;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                food = 0;
+            }
+            else
+            {
+                food = value;
+                
+            }
+        }
+    }
+    
+    
+    public int Coins
+    {
+        set
+        {
+            if (value < 0)
+            {
+                coins = 0;
+            }
+            else
+            {
+                coins = value;
+            }
+        }
+        get
+        {
+            return coins;
+        }
+    }
     public string Name
     {
         get
@@ -340,80 +415,7 @@ class Park : Building
         get;
     }
     
-    public int Day
-    {
-        get
-            {
-                return day;
-            }
-        set
-            {
-                day = value;
-            }
-    }
-    public int Happieness
-    {
-        set
-        {
-            if (value < 0)
-            {
-                happiness = 0;
-            }
-            else if (value > 100)
-            {
-                happiness = 100;
-            }
-            else 
-            {
-                happiness = value;
-            }
-            
-        }
-
-        get
-        {
-            return happiness;
-        }
-    }
-    public int Food
-    {
-        get
-        {
-            return food;
-        }
-        set
-        {
-            if (value < 0)
-            {
-                food = 0;
-            }
-            else
-            {
-                food = value;
-                
-            }
-        }
-    }
-    
-    
-    public int Coins
-    {
-        set
-        {
-            if (value < 0)
-            {
-                coins = 0;
-            }
-            else
-            {
-                coins = value;
-            }
-        }
-        get
-        {
-            return coins;
-        }
-    }
+   
     public bool HasPlaceForCats
     {
         get
