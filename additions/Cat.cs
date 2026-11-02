@@ -10,7 +10,48 @@ class Cat
     private static int count = 0;
     private int happiness;
     
+    public int Energy
+    {
+        set
+        {
+            if (value < 0)
+            {
+                energy = 0;
+            }
+            else if (value > 100)
+            {
+                energy = 100;
+            }
+            else
+            {
+                energy = value;
+            }
+        }
+        get
+        {
+            return energy;
+        }
+
+    }
     
+    public int Age
+    {
+    set
+    {
+        if (value < 0)
+        {
+            age = 0;
+        }
+        else
+        {
+            age = value;
+        }
+     }
+    get
+    {
+        return age;
+    }
+    }
     public string Name
     {
         get
@@ -19,7 +60,14 @@ class Cat
         }
         set
         {
-            name = value;
+            if (value == "")
+            {
+                name = "NoName";
+            }
+            else 
+            {
+                name = value;
+            }
         }
     }
     public int Happiness
@@ -58,6 +106,10 @@ class Cat
             {
                 hunger = 100;
             }
+            else
+            {
+                hunger = value;    
+            }
         }
         get
         {
@@ -85,7 +137,7 @@ class Cat
     
     public void Eat(City city)
     {
-        if (city.NoFood(5))
+        if (city.HasFood(5))
         {
             Hunger -= 20;
             Happiness += 4;
@@ -149,72 +201,6 @@ class Cat
     {
         
     } 
-
-    public int Hungry
-    {
-        set
-        {
-                if  (value < 0)
-            {
-                hunger = 0; 
-            }
-            else if (value > 100)
-            {
-                hunger = 100;
-            }
-            else
-            {
-                hunger = value;
-            }
-        }
-        get
-        {
-            return hunger;
-        }
-    }
-    public int Energy
-    {
-        set
-        {
-            if (value < 0)
-            {
-                energy = 0;
-            }
-            else if (value > 100)
-            {
-                energy = 100;
-            }
-            else
-            {
-                energy = value;
-            }
-        }
-        get
-        {
-            return energy;
-        }
-
-    }
     
-    public int Age
-    {
-    set
-        {
-            if (value < 0)
-            {
-                age= 0;
-            }
-            else
-            {
-                age= value;
-            }
-        }
-        get
-        {
-            return age;
-        }
-    }
-
-
 }
 }

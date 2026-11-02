@@ -3,8 +3,6 @@ namespace CatCity {
 
     interface IUpgradable
     {
-        
-        
         int Level{
             get;
         }
@@ -276,7 +274,7 @@ class Park : Building
             return false;
         }
     }
-    public bool NoFood(int mn)
+    public bool HasFood(int mn)
     {
         if (mn <= 0)
         {
@@ -284,7 +282,7 @@ class Park : Building
         }
         else if (Food >= mn)
         {
-            Food-=mn;
+            Food -= mn;
             return true;
         }
         else
