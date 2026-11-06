@@ -423,6 +423,83 @@ class Park : Building
             return Cats.Count() < Maxcats;
         }
     }
+    public void BuildHouse()
+    {
+        int price = 40;
+        if (NoCoins(price))
+        {
+            Building.Add(new House());
+            Console.WriteLine("you just build a House");
+        }
+        else
+        {
+            Console.WriteLine("you dont have enough money to build a House");
+        }
+    }
+    public void BuildFarm()
+    {
+        int price = 50;
+        if (NoCoins(price))
+        {
+            Building.Add(new Farm());
+            Console.WriteLine("you just build a Farm");
+        }
+        else
+        {
+            Console.WriteLine("you dont have enough money to build a Farm");
+        }
+    }
+
+    public void BuildFishMarket()
+    {
+        int price = 65;
+        if (NoCoins(price))
+        {
+            Building.Add(new FishMarket());
+            Console.WriteLine("you just build a FishMarket");
+        }
+        else
+        {
+            Console.WriteLine("you dont have enough money to build a FishMarket");
+        } 
+     }
+     public void BuildPark()
+    {
+        int price = 45;
+        if (NoCoins(price))
+        {
+            Building.Add(new Park());
+            Console.WriteLine("you just build a Park");
+        }
+        else
+        {
+            Console.WriteLine("you dont have enough money to build a Park");
+        }    
+    }
+    public void BuildBuilding(int type)
+    {
+        if (type == 1)
+        {
+            BuildHouse();
+        }
+        if (type == 2)
+        {
+            BuildFarm();
+        }
+        if (type == 3)
+        {
+            BuildFishMarket();
+        }
+
+        if (type == 4)
+        {
+             BuildPark();   
+        }
+        else
+        {
+            Console.WriteLine("There is no such a building"); 
+        }
+    }
     public City(string Namecat)
     {
         Name = Namecat;
